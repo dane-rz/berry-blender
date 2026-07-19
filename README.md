@@ -6,6 +6,8 @@ corner. Nail your timing and the blender spins faster and you walk away with a
 fancier Pokéblock. Bring some friends (TBD) — you can add up to 3 AI opponents and
 squabble over the same bowl.
 
+**Hosted and free to try at: https://drz-berry-blender.pages.dev/**
+
 Honestly this exists because I wanted to build something for fun instead of yet
 another CRUD dashboard, and use it as an excuse to actually learn a couple of
 things:
