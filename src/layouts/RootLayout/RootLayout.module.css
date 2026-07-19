@@ -1,0 +1,74 @@
+.header {
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(var(--plum-900), rgba(36, 16, 51, 0.55));
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--cream);
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+}
+
+.brandMark {
+  position: relative;
+  width: 34px;
+  height: 30px;
+  display: inline-block;
+}
+.brandBerry {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  bottom: 0;
+}
+.brandBerry1 {
+  left: 0;
+  background: var(--razz);
+}
+.brandBerry2 {
+  right: 0;
+  background: var(--grape);
+}
+.brandBerry3 {
+  left: 8px;
+  top: 0;
+  background: var(--blue);
+}
+
+.tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--cream-dim);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 560px) {
+  .tag {
+    display: none;
+  }
+}

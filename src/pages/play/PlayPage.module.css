@@ -1,0 +1,68 @@
+.play {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Holds the bowl centered with seats parked at the corners around it. */
+.arena {
+  position: relative;
+  width: min(560px, 94vw);
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+.arena[data-multiplayer='true'] {
+  padding: 72px 0;
+}
+
+/* display:contents lets the seats position against .arena while still
+   collapsing into a normal flex strip on narrow screens. */
+.seats {
+  display: contents;
+}
+
+@media (max-width: 620px) {
+  .arena[data-multiplayer='true'] {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+  }
+  .seats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+}
+
+.hint {
+  margin-top: 26px;
+  color: var(--cream-dim);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.hint kbd {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.78rem;
+  padding: 2px 8px;
+  border-radius: 7px;
+  background: var(--plum-800);
+  box-shadow:
+    inset 0 0 0 1px var(--plum-700),
+    0 2px 0 var(--plum-950);
+  color: var(--cream);
+}
