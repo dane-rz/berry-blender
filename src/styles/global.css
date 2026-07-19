@@ -1,0 +1,147 @@
+:root {
+  /* ── Palette: "berry juice" ─────────────────────────── */
+  --plum-950: #1a0b24; /* deepest background */
+  --plum-900: #241033; /* app background */
+  --plum-800: #331848; /* raised surface */
+  --plum-700: #452259; /* borders / hover */
+
+  --razz: #ff4d8d; /* raspberry — primary accent */
+  --grape: #c74bff; /* grape — secondary accent */
+  --blue: #6c63ff; /* blueberry */
+  --zest: #b6e948; /* citrus zest — success / go */
+  --gold: #ffc14d; /* golden plum — highlight */
+
+  --cream: #fbf3e8; /* primary text */
+  --cream-dim: #cbb8d4; /* muted text */
+
+  /* judgement colors */
+  --judge-perfect: var(--zest);
+  --judge-good: var(--gold);
+  --judge-miss: #8a6b9e;
+
+  /* ── Type ───────────────────────────────────────────── */
+  --font-display: 'Fredoka', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+
+  /* ── Shape ──────────────────────────────────────────── */
+  --radius: 18px;
+  --radius-lg: 28px;
+  --shadow-pop: 0 10px 0 rgba(0, 0, 0, 0.28);
+  --ring: 0 0 0 3px var(--plum-900), 0 0 0 6px var(--razz);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--cream);
+  background:
+    radial-gradient(1200px 800px at 70% -10%, rgba(199, 75, 255, 0.18), transparent 60%),
+    radial-gradient(1000px 700px at 10% 110%, rgba(108, 99, 255, 0.16), transparent 55%),
+    var(--plum-900);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+button {
+  font-family: var(--font-display);
+  cursor: pointer;
+  border: none;
+  color: inherit;
+  background: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+.app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Reusable juicy button ────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: var(--razz);
+  color: var(--plum-950);
+  box-shadow: var(--shadow-pop);
+  transition:
+    transform 0.08s ease,
+    filter 0.15s ease;
+  will-change: transform;
+}
+.btn:hover {
+  filter: brightness(1.06);
+}
+.btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.28);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--cream);
+  box-shadow: inset 0 0 0 2px var(--plum-700);
+}
+.btn--zest {
+  background: var(--zest);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: none;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: var(--razz);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

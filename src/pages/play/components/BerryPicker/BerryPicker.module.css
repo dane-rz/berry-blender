@@ -1,0 +1,163 @@
+.picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.prompt {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--cream);
+}
+
+.grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  width: 100%;
+  max-width: 460px;
+}
+
+.berry {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 10px 14px;
+  border-radius: var(--radius);
+  background: var(--plum-800);
+  box-shadow: inset 0 0 0 2px transparent;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+.berry:hover {
+  transform: translateY(-3px);
+}
+.berry[data-active='true'] {
+  background: color-mix(in srgb, var(--berry) 20%, var(--plum-800));
+  box-shadow:
+    inset 0 0 0 2px var(--berry),
+    0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+.blob {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 38% 32%,
+    color-mix(in srgb, var(--berry) 80%, white),
+    var(--berry)
+  );
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+.name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.flavor {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--cream-dim);
+}
+.rarity {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 0.56rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--berry);
+  color: var(--plum-950);
+}
+
+/* opponents + difficulty pickers */
+.setup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.setupLabel {
+  font-family: var(--font-body);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.62rem;
+  color: var(--cream-dim);
+}
+.segment {
+  display: inline-flex;
+  padding: 4px;
+  gap: 4px;
+  border-radius: 999px;
+  background: var(--plum-800);
+  box-shadow: inset 0 0 0 1px var(--plum-700);
+}
+.segment button {
+  min-width: 40px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: capitalize;
+  color: var(--cream-dim);
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+.segment button[data-active='true'] {
+  background: var(--razz);
+  color: var(--plum-950);
+}
+
+.start {
+  margin-top: 4px;
+}
+
+/* loading / error states */
+.state {
+  gap: 14px;
+  padding: 40px 0;
+  color: var(--cream-dim);
+  font-weight: 700;
+}
+.spinner {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.12);
+  border-top-color: var(--razz);
+  animation: picker-spin 0.8s linear infinite;
+}
+@keyframes picker-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 420px) {
+  .grid {
+    gap: 10px;
+  }
+  .berry {
+    padding: 14px 6px 12px;
+  }
+}
